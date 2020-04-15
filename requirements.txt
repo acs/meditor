@@ -1,0 +1,7 @@
+setuptools
+django
+gunicorn
+matplotlib
+requests
+kidash
+djangorestframework

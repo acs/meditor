@@ -26,14 +26,9 @@ A draft diagram for the architecture is:
 **Prosoul** is a Django application. The recommended way to execute it is inside a python virtual environment. 
 
 ### Requirements
+The project is build using Python3 and Django
 
-* Python >=3.4
-* setuptools
-* django
-* kidash
-* requests
-* python3-tk
-* matplotlib
+Check the [requirements.txt](./requirements.txt) file
 
 You can run the application by three ways, [source code](#from-source-code), [pip package](#from-pip-package) and [docker](#from-docker).
 

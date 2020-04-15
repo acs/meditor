@@ -4,3 +4,4 @@ migrations
 *.pyo
 __pycache__
 db.sqlite3
+.venv
