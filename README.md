@@ -14,9 +14,7 @@ The final goal is to have a tool for "Automatic Project Assessment and Visualiza
 
 ## Architecture
 
-A draft diagram for the architecture is:
 ![arch-diag](doc/prosoul-arch.png?raw=true)
-
 
 > **NOTE**: The original name for this project was **Meditor** but it was changed to **Prosoul** because meditor already was used in pip.
 
