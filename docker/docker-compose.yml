@@ -1,26 +1,37 @@
-elasticsearch:
-  image: bitergia/elasticsearch:6.1.0
-  command: /elasticsearch/bin/elasticsearch -E network.bind_host=0.0.0.0
-  ports:
-    - "9200:9200"
-  environment:
-    - ES_JAVA_OPTS=-Xms2g -Xmx2g
+version: "2"
 
-kibiter:
-  image: bitergia/kibiter:6.1.0-optimized
-  links:
-    - elasticsearch
-  ports:
-   - "5601:5601"
+services:
+    prosoul:
+      image: bitergia/prosoul
+      ports:
+       - "8000:8000"
+      depends_on:
+       - kibiter
+       - elasticsearch
+      environment:
+       - ALLOWED_HOSTS=prosoul localhost 127.0.0.1
+       - ES_URL=https://admin:admin@elasticsearch:9200
+       - KIBITER_URL=https://kibiter:80
 
-prosoul:
-  image: bitergia/prosoul
-  ports:
-   - "8000:8000"
-  depends_on:
-   - kibiter
-   - elasticsearch
-  environment:
-   - ALLOWED_HOSTS=prosoul localhost 127.0.0.1
-   - ES_URL=https://admin:admin@elasticsearch:9200
-   - KIBITER_URL=https://kibiter:80
+    elasticsearch:
+      image: bitergia/elasticsearch:6.8.6-secured
+      command: elasticsearch -Enetwork.bind_host=0.0.0.0 -Ehttp.max_content_length=2000mb
+      ports:
+        - 9200:9200
+      environment:
+        - ES_JAVA_OPTS=-Xms2g -Xmx2g
+
+    kibiter:
+      restart: on-failure:5
+      image: bitergia/kibiter:secured-v6.8.6-3
+      environment:
+        - PROJECT_NAME=Demo
+        - NODE_OPTIONS=--max-old-space-size=1000
+        - ELASTICSEARCH_USER=kibanaserver
+        - ELASTICSEARCH_PASSWORD=kibanaserver
+        - ELASTICSEARCH_URL=["https://elasticsearch:9200"]
+        - LOGIN_SUBTITLE=If you have forgotten your username or password ...
+      links:
+        - elasticsearch
+      ports:
+        - 5601:5601
