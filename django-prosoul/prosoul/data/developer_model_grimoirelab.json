@@ -1,0 +1,79 @@
+{
+ "qualityModels": [
+  {
+   "goals": [
+    {
+     "attributes": [
+      {
+       "description": "",
+       "factoids": [],
+       "metrics": [
+        {
+         "calculation_type": "max",
+         "data_implementation": "Number of Commits",
+         "data_params": null,
+         "data_source_type": null,
+         "description": "",
+         "name": "Number of Commits",
+         "reverse_thresholds": false,
+         "thresholds": "1,5,10,20,50"
+        },
+        {
+         "calculation_type": "max",
+         "data_implementation": "Number of Created Issues",
+         "data_params": null,
+         "data_source_type": null,
+         "description": "",
+         "name": "Number of Issues",
+         "reverse_thresholds": false,
+         "thresholds": "1,5,10,20,50"
+        }
+       ],
+       "name": "Vitality",
+       "subattributes": []
+      }
+     ],
+     "description": "",
+     "name": "Product",
+     "subgoals": []
+    },
+    {
+     "attributes": [
+      {
+       "description": "",
+       "factoids": [],
+       "metrics": [
+        {
+         "calculation_type": "max",
+         "data_implementation": "Number of Issues Attended",
+         "data_params": null,
+         "data_source_type": null,
+         "description": "",
+         "name": "Number of Issues Attended",
+         "reverse_thresholds": false,
+         "thresholds": "1,5,10,20,50"
+        },
+        {
+         "calculation_type": "max",
+         "data_implementation": "Number of Closed Issues",
+         "data_params": null,
+         "data_source_type": null,
+         "description": "",
+         "name": "Number of Issues Closed",
+         "reverse_thresholds": false,
+         "thresholds": "1,5,10,20,50"
+        }
+       ],
+       "name": "Attention",
+       "subattributes": []
+      }
+     ],
+     "description": "",
+     "name": "Community",
+     "subgoals": []
+    }
+   ],
+   "name": "Developer Quality Model (GrimoireLab)"
+  }
+ ]
+}
